@@ -224,6 +224,9 @@
       </file>
     </group>
     <file>
+      <name>$PROJ_DIR$\Code\Application\csp.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\Code\Application\modbus_app.c</name>
     </file>
   </group>

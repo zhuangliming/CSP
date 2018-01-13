@@ -48,7 +48,6 @@ int main(char arg,char *arv)
     eMBEnable();
     while(1)
     {
-
         eMBPoll();
     }
     OSInit();
