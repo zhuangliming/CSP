@@ -4,6 +4,7 @@
 /* ----------------------- Modbus includes ----------------------------------*/
 #include "mb.h"
 #include "mbport.h"
+#include "csp.h"
 /*Git HUB*/
 /*********threads**********/
 OS_STK	STK_Entry[128];
@@ -17,7 +18,7 @@ void ThreadTracker(void *Par);
 void ThreadEntry(void *Par)
 {
     BoardInit();
-    eMBInit(MB_RTU, 0x01, 0, 9600, MB_PAR_NONE);/*建立一个MODBUS RTU设备*/
+    eMBInit(MB_RTU, 0x01, 0, 9600, MB_PAR_NONE);/*Create a MODBUS RTU device*/
     eMBEnable();
 
     while(1)
@@ -29,6 +30,8 @@ void ThreadEntry(void *Par)
 
 void ThreadTracker(void *Par)
 {
+	struct csp_class *CSP;
+	CSP = GetCSPDevice(0);
     while(1)
     {
         OSHwLedON(0);
@@ -43,13 +46,6 @@ void ThreadTracker(void *Par)
 
 int main(char arg,char *arv)
 {
-    BoardInit();
-    eMBInit(MB_RTU, 0x01, 0, 9600, MB_PAR_NONE);/*建立一个MODBUS RTU设备*/
-    eMBEnable();
-    while(1)
-    {
-        eMBPoll();
-    }
     OSInit();
     OSTaskCreate( ThreadEntry,(void*)0,&STK_Entry[128-1],1);
     OSTaskCreate( ThreadTracker,(void*)0,&STK_Tracker[128-1],2);

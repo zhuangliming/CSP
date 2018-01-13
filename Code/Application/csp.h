@@ -8,7 +8,7 @@
 #ifndef ON
 #define ON	1
 #endif
-#ifndef ON
+#ifndef OFF
 #define OFF	0
 #endif
 
@@ -24,6 +24,7 @@ typedef union{
 
 /*CSP device*/
 struct csp_class{
+	char *Version;
 	IO_Type IO;  /*Ctrl IO Port*/
 };
 

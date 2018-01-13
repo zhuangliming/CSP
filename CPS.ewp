@@ -302,6 +302,7 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
+          <state>$PROJ_DIR$\Code\Application</state>
           <state>$PROJ_DIR$\Code\uCOS-II\Config</state>
           <state>$PROJ_DIR$\Code\uCOS-II\Ports</state>
           <state>$PROJ_DIR$\Code\uCOS-II\Source</state>
