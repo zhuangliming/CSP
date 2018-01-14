@@ -2,7 +2,7 @@
 1.git init 
 2.git add 
 3.git commit -m "first commit"
-4.Create £º http://github.com/zhuangliming/CSP.git
+      4.Create like http://github.com/zhuangliming/CSP.git
 5.git pull --rebase origin master
 6.git remote add origin  http://github.com/zhuangliming/CSP.git
 7.git push -u origin master
