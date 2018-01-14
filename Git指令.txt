@@ -1,32 +1,10 @@
-首先，进入的gitStore目录下（没有的话自己创建一个）
 
- 
 1.git init 
-
-在gitStore目录下 初始化一个git仓库
-
 2.git add 
-
-复制一个文件到gitStore目录下，然后执行git add .
-
-将“修改”从当前工作区存放到暂存区
-
-
 3.git commit -m "first commit"
+4.Create ： http://github.com/zhuangliming/CSP.git
+5.git pull --rebase origin master
+6.git remote add origin  http://github.com/zhuangliming/CSP.git
+7.git push -u origin master
 
-将暂存区中存放的文件提交到git仓库
-
-
-4.在远端新建一个git代码库： http://github.com/zhuangliming/CSP.git
-
-
-5.git remote add origin  http://github.com/zhuangliming/AltiumDesigner-Libs.git
-
-
-将本地代码库的当前分支与远程的代码库相关联
-
-
-6.git push -u origin master
-
-将本地代码库的当前分支推送到远程的代码库
 
