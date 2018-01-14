@@ -20,8 +20,8 @@ void RCCConfiguration(void)
     while(RCC_GetSYSCLKSource() != 0x08)
     {
     }
-   // NVIC_SetVectorTable(0x8000000 , 0x000);
-    //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+	NVIC_SetVectorTable(0x8000000 , 0x000);
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 }
 
 void OSStickInit(void)
@@ -62,7 +62,7 @@ void OSHwLedOFF(INT8U id)
 void BoardInit(void)
 {
     RCCConfiguration();
-    //OSStickInit();
+    OSStickInit();
     STM32HwLedInit();
 
 }

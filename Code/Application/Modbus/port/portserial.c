@@ -24,30 +24,20 @@
 /* ----------------------- Modbus includes ----------------------------------*/
 #include "mb.h"
 #include "mbport.h"
-extern volatile UCHAR **pucSndBufferCur_p;
-extern volatile USHORT *usSndBufferCount_p;
 
-void _delay_ms(void)
-{
-	for(int i=0;i<1000;i++)
-		for(int j=0;j<2000;j++);
-}
 /* ----------------------- Start implementation -----------------------------*/
 void vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
 {
     if(TRUE==xRxEnable)
     {
-		GPIO_ResetBits( GPIOA, GPIO_Pin_8);
-		_delay_ms();
+        GPIO_ResetBits( GPIOA, GPIO_Pin_8);
         USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
-        
     }
     else
     {
-		GPIO_SetBits( GPIOA, GPIO_Pin_8);
-		_delay_ms();
+        GPIO_SetBits( GPIOA, GPIO_Pin_8);
         USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
-        
+
     }
 
     if(TRUE==xTxEnable)
@@ -74,9 +64,11 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
     USART_InitTypeDef USART_InitStructure;
     NVIC_InitTypeDef NVIC_InitStructure;
 
+    USART_DeInit(USART1);
+
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA , ENABLE);
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 , ENABLE);
-	
+
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
     GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_9;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -95,7 +87,7 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
 
     /* USART2 configuration ------------------------------------------------------*/
     /* USART2 configured as follow:
-          - BaudRate = 115200 baud
+          - BaudRate = ulBaudRate
           - Word Length = 8 Bits
           - One Stop Bit
           - No parity
@@ -108,6 +100,7 @@ BOOL xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBPar
     USART_InitStructure.USART_Parity = USART_Parity_No;
     USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
     USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+
 
     /* Configure the USART2 */
     USART_Init(USART1, &USART_InitStructure);

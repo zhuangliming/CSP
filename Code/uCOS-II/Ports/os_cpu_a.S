@@ -21,9 +21,6 @@
         EXPORT  OSCtxSw
         EXPORT  OSIntCtxSw
         EXPORT  PendSV_Handler
-        EXPORT  OS_ISR_Enable
-        EXPORT  OS_ISR_Disable
-
 
 NVIC_INT_CTRL   	EQU     0xE000ED04                              ; Interrupt control state register
 NVIC_SYSPRI14    	EQU     0xE000ED22                              ; System priority register (yan).
@@ -34,14 +31,6 @@ NVIC_PENDSVSET  	EQU     0x10000000                              ; Value to trig
 	THUMB
 	REQUIRE8
 	PRESERVE8
-
-OS_ISR_Enable:
-        CPSIE   I
-        BX      LR
-
-OS_ISR_Disable:
-        CPSID   I
-        BX      LR
 
 OS_CPU_SR_Save:
         MRS     R0, PRIMASK

@@ -25,13 +25,13 @@
 #include <assert.h>
 #include <inttypes.h>
 #include <board.h>
-#include <ucos_ii.h>
+#include "ucos_ii.h"
 #define	INLINE
 #define PR_BEGIN_EXTERN_C           extern "C" {
 #define	PR_END_EXTERN_C             }
 
-#define ENTER_CRITICAL_SECTION( )	__asm volatile("cpsid i");	
-#define EXIT_CRITICAL_SECTION( )    __asm volatile("cpsie i");
+#define ENTER_CRITICAL_SECTION( )	OS_ENTER_CRITICAL()	
+#define EXIT_CRITICAL_SECTION( )    OS_EXIT_CRITICAL()
 
 
 typedef uint8_t BOOL;

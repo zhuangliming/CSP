@@ -1,29 +1,12 @@
-/* ----------------------- Modbus includes ----------------------------------*/
-#include "mb.h"
-#include "mbport.h"
-
-/* ----------------------- Defines ------------------------------------------*/
-#define REG_INPUT_START 	1
-#define REG_INPUT_NREGS 	64
-#define REG_HOLDING_START 	1
-#define REG_HOLDING_NREGS 	64
+#include "modbus_app.h"
 /* ----------------------- Static variables ---------------------------------*/
 static USHORT   usRegInputStart = REG_INPUT_START;
-static USHORT   usRegInputBuf[REG_INPUT_NREGS];
+USHORT   usRegInputBuf[REG_INPUT_NREGS];
 static USHORT   usRegHoldingStart = REG_HOLDING_START;
-static USHORT   usRegHoldingBuf[REG_HOLDING_NREGS]=
-{0x147b,0x3f8e,0x147b,0x400e,0x1eb8,0x4055,0x147b,0x408e};
-
-USHORT  *RegHoldingPoint =usRegHoldingBuf;
-USHORT  *RegInputPoint =usRegInputBuf;
-
-/* ----------------------- Defines ------------------------------------------*/
-#define REG_COILS_START     0
-#define REG_COILS_SIZE      128
+USHORT   usRegHoldingBuf[REG_HOLDING_NREGS];
 
 /* ----------------------- Static variables ---------------------------------*/
-static unsigned char ucRegCoilsBuf[REG_COILS_SIZE / 8]={0x55,0xA9,0x34};
-
+UCHAR ucRegCoilsBuf[REG_COILS_SIZE / 8]={0x55,0xA9,0x34};
 
 eMBErrorCode
 eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
