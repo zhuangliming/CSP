@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1692564128
+Checksum=1556629588
 [JLinkDriver]
 CStepIntDis=_ 0
 TraceBufferSize=0x00010000
@@ -41,8 +41,11 @@ ITMportsEnable=0
 ITMportsTermIO=0
 ITMportsLogFile=0
 ITMlogFile=$PROJ_DIR$\ITM.log
+[struct_types]
+Fmt0=struct csp_class-IO	4	0
 [array_types]
-Fmt0=unsigned char[256]	4	0
+Fmt0=UCHAR[16]	1	0
+Fmt1=unsigned char[256]	4	0
 [SWOTraceWindow]
 PcSampling=0
 InterruptLogs=0

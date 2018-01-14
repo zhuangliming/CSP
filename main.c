@@ -10,7 +10,7 @@
 #include "board.h"
 /* ----------------------- Modbus includes ---------------------------------*/
 #include "modbus_app.h"
-
+#include "csp.h"
 /*-------------------------------threads------------------------------------*/
 OS_STK	STK_Entry[64];
 OS_STK	STK_Tracker[128];
@@ -40,6 +40,9 @@ void ThreadEntry(void *Par)
 
 void ThreadTracker(void *Par)
 {
+	struct csp_class *_csp;
+	_csp = GetCSPDevice(0);
+	CSPInit(_csp);
     while(1)
     {
 		OSTimeDly(500);

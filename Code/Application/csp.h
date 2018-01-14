@@ -14,18 +14,22 @@
 
 typedef union{
 	struct{
-		INT16U 	Lift:1;
-		INT16U 	Right:1;
-		INT16U	Up:1;
-		INT16U	Down:1;
+		INT8U 	Lift:1;
+		INT8U 	Right:1;
+		INT8U	Up:1;
+		INT8U	Down:1;
+		INT8U	Auto:1;
+		INT8U	Rev:1;
+		INT8U	LiftLimit:1;
+		INT8U	UpLimit:1;
 	};
-	INT16U Reg;
+	INT8U Reg;
 }IO_Type;
 
 /*CSP device*/
 struct csp_class{
 	char *Version;
-	IO_Type IO;  /*Ctrl IO Port*/
+	IO_Type *IO;  /*Ctrl IO Port*/
 };
 
 INT8U CSPInit(struct csp_class *Csp);

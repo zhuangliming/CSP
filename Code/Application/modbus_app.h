@@ -12,7 +12,7 @@
 #define REG_HOLDING_NREGS 	64
 
 /* ----------------------- Defines ------------------------------------------*/
-#define REG_COILS_START     (1000-1)
+#define REG_COILS_START     (1001)
 #define REG_COILS_SIZE      128
 extern UCHAR	ucRegCoilsBuf[REG_COILS_SIZE / 8];
 extern USHORT   usRegInputBuf[REG_INPUT_NREGS];
