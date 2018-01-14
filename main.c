@@ -8,10 +8,10 @@
 #include <ucos_ii.h>
 #include <ucos_device.h>
 #include "board.h"
-/* ----------------------- Modbus includes ----------------------------------*/
+/* ----------------------- Modbus includes ---------------------------------*/
 #include "modbus_app.h"
 
-/*-------------------------------threads-------------------------------------*/
+/*-------------------------------threads------------------------------------*/
 OS_STK	STK_Entry[64];
 OS_STK	STK_Tracker[128];
 OS_STK	STK_Modbus[256];
