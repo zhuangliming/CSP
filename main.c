@@ -5,8 +5,7 @@
 #include "mb.h"
 #include "mbport.h"
 #include "csp.h"
-/*Git HUB*/
-/*********threads**********/
+/*Git HUB1.9*//*********threads**********/
 OS_STK	STK_Entry[128];
 OS_STK	STK_Tracker[128];
 
