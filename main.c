@@ -1,5 +1,5 @@
 /*****************************************************************************
-*								CSP
+*                                   CSP
 * File:main.c
 * Edit:zhuangliming
 * Version:V1.0
@@ -24,11 +24,11 @@ void ThreadModbus(void *Par);
  * app entry thread
  */
 void ThreadEntry(void *Par)
-{                            
-	OS_ENTER_CRITICAL();
-	OSTaskCreate( ThreadTracker,(void*)0,&STK_Tracker[sizeof(STK_Tracker)/sizeof(OS_STK)-1],3);
-	OSTaskCreate( ThreadModbus,(void*)0,&STK_Modbus[sizeof(STK_Modbus)/sizeof(OS_STK)-1],4);
-	OS_EXIT_CRITICAL();
+{
+    OS_ENTER_CRITICAL();
+    OSTaskCreate( ThreadTracker,(void*)0,&STK_Tracker[sizeof(STK_Tracker)/sizeof(OS_STK)-1],3);
+    OSTaskCreate( ThreadModbus,(void*)0,&STK_Modbus[sizeof(STK_Modbus)/sizeof(OS_STK)-1],4);
+    OS_EXIT_CRITICAL();
     while(1)
     {
         OSHwLedON(0);
@@ -38,14 +38,17 @@ void ThreadEntry(void *Par)
     }
 }
 
+/**
+* sun tarcking thread
+*/
 void ThreadTracker(void *Par)
 {
-	struct csp_class *_csp;
-	_csp = GetCSPDevice(0);
-	CSPInit(_csp);
+    struct csp_class *_csp;
+    _csp = GetCSPDevice(0);
+    CSPInit(_csp);
     while(1)
     {
-		OSTimeDly(500);
+        OSTimeDly(500);
     }
 }
 
@@ -56,21 +59,21 @@ void ThreadTracker(void *Par)
  */
 void ThreadModbus(void *Par)
 {
-	eMBInit(MB_RTU, 0x01, 0, 19200, MB_PAR_NONE);/*Create a MODBUS RTU device*/
+    eMBInit(MB_RTU, 0x01, 0, 19200, MB_PAR_NONE);/*Create a MODBUS RTU device*/
     eMBEnable();
     while(1)
     {
-		eMBPoll();
+        eMBPoll();
         OSTimeDly(5);
     }
 }
 /**
- * Main Function 
+ * Main Function
  */
 int main(char arg,char *arv)
 {
     BoardInit();
-	OSInit();
+    OSInit();
     OSTaskCreate( ThreadEntry,(void*)0,&STK_Entry[sizeof(STK_Entry)/sizeof(OS_STK)],2);
     OSStart();
     for(;;)

@@ -20,19 +20,16 @@ void RCCConfiguration(void)
     while(RCC_GetSYSCLKSource() != 0x08)
     {
     }
-	NVIC_SetVectorTable(0x8000000 , 0x000);
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+    NVIC_SetVectorTable(0x8000000 , 0x000);
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 }
 
 void OSStickInit(void)
 {
 
     RCC_ClocksTypeDef  rcc_clocks;
-    /*获取系统频率*/
     RCC_GetClocksFreq(&rcc_clocks);
-    /*配置HCLK作为SysTick时钟*/
     SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK);
-    /*配置自动加载数值*/
     SysTick_Config((rcc_clocks.HCLK_Frequency / OS_TICKS_PER_SEC) - 1);
 }
 

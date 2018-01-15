@@ -1955,6 +1955,12 @@
     <file>
       <name>$PROJ_DIR$\Code\Application\modbus_app.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\Code\Application\sun.a</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Code\Application\sun.h</name>
+    </file>
   </group>
   <group>
     <name>BSP</name>
@@ -1964,6 +1970,9 @@
         <name>Device</name>
         <file>
           <name>$PROJ_DIR$\Code\BSP\STM32F10x\Device\board.c</name>
+        </file>
+        <file>
+          <name>$PROJ_DIR$\Code\BSP\STM32F10x\Device\rtc.c</name>
         </file>
       </group>
       <group>

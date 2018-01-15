@@ -6,7 +6,7 @@ static USHORT   usRegHoldingStart = REG_HOLDING_START;
 USHORT   usRegHoldingBuf[REG_HOLDING_NREGS];
 
 /* ----------------------- Static variables ---------------------------------*/
-UCHAR ucRegCoilsBuf[REG_COILS_SIZE / 8]={0x55,0xA9,0x34};
+UCHAR ucRegCoilsBuf[REG_COILS_SIZE / 8]= {0x55,0xA9,0x34};
 
 eMBErrorCode
 eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
