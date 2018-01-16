@@ -3,7 +3,7 @@
 * File:main.c
 * Edit:zhuangliming
 * Version:V1.0
-* Date:2018-01-14
+* Date:2018-01-16
 *****************************************************************************/
 #include <ucos_ii.h>
 #include <ucos_device.h>
