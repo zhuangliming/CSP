@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1556629588
+Checksum=-1382775033
 [JLinkDriver]
 CStepIntDis=_ 0
 TraceBufferSize=0x00010000
@@ -42,7 +42,13 @@ ITMportsTermIO=0
 ITMportsLogFile=0
 ITMlogFile=$PROJ_DIR$\ITM.log
 [struct_types]
-Fmt0=struct csp_class-IO	4	0
+Fmt0=_RTC-hour	3	0
+Fmt1=_RTC-min	3	0
+Fmt2=_RTC-sec	3	0
+Fmt3=_RTC-w_date	3	0
+Fmt4=_RTC-w_month	3	0
+Fmt5=_RTC-week	3	0
+Fmt6=struct csp_class-IO	4	0
 [array_types]
 Fmt0=UCHAR[16]	1	0
 Fmt1=unsigned char[256]	4	0

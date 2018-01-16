@@ -6,17 +6,19 @@
 struct csp_class CSP;
 
 /**
- * Init CSP
- * -----------------------------------------MODBUS---------------------------------------------
- * LocalGeography           0x40001
- * IO                       0x10001
- * --------------------------------------------------------------------------------------------
- */
+* Init CSP
+* -----------------------------------------MODBUS---------------------------------------------
+* Tackstation			   0x30001
+* LocalGeography           0x40001
+* IO                       0x10001
+* --------------------------------------------------------------------------------------------
+*/
 INT8U CSPInit(struct csp_class *Csp)
 {
     Csp->IO = (IO_Type *)ucRegCoilsBuf;
     Csp->IO->Reg = 0x00;
     Csp->LocalGeography = (struct Geography *)usRegHoldingBuf;
+	Csp->track = (struct Station *)usRegInputBuf;
     SunSetLocalGeography(12.12,32.1);/*set local geography*/
     return 0;
 }

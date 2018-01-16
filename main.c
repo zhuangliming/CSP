@@ -48,6 +48,11 @@ void ThreadTracker(void *Par)
     CSPInit(_csp);
     while(1)
     {
+		STM32HwGetTime(&_csp->rtc);
+		_csp->track->SunAngleEW += 0.01;
+		_csp->track->SunAngleUD += 0.11;
+		_csp->track->TrackAngleEW += 0.13;
+		_csp->track->TrackAngleUD += 0.12;
         OSTimeDly(500);
     }
 }

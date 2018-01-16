@@ -20,7 +20,7 @@ void RCCConfiguration(void)
     while(RCC_GetSYSCLKSource() != 0x08)
     {
     }
-    NVIC_SetVectorTable(0x8000000 , 0x000);
+    NVIC_SetVectorTable(0x8002000 , 0x000);
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 }
 
@@ -61,7 +61,7 @@ void BoardInit(void)
     RCCConfiguration();
     OSStickInit();
     STM32HwLedInit();
-
+	STM32HwRTCInit();
 }
 /**
   * @brief  This function handles SysTick Handler.

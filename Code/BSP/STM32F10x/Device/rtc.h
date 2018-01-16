@@ -4,15 +4,17 @@
 #include "board.h"
 #include "ucos_ii.h"
 
-typedef struct {
-    INT8U hour;
-    INT8U min;
-    INT8U sec;
+typedef struct
+{
     INT16U w_year;
-    INT8U w_month;
-    INT8U w_date;
-    INT8U week;
-}_RTC;
+    INT16U w_month;
+    INT16U w_date;
+    INT16U week;
+    INT16U hour;
+    INT16U min;
+    INT16U sec;
+} _RTC;
 
 void STM32HwRTCInit(void);
+void STM32HwGetTime(_RTC *timer);
 #endif

@@ -597,7 +597,7 @@
         <option>
           <name>OOCOutputFormat</name>
           <version>2</version>
-          <state>0</state>
+          <state>2</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
@@ -605,7 +605,7 @@
         </option>
         <option>
           <name>OOCOutputFile</name>
-          <state>c.srec</state>
+          <state>CPS.bin</state>
         </option>
         <option>
           <name>OOCCommandLineProducer</name>
@@ -613,7 +613,7 @@
         </option>
         <option>
           <name>OOCObjCopyEnable</name>
-          <state>0</state>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -719,11 +719,11 @@
         </option>
         <option>
           <name>IlinkIcfOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$TOOLKIT_DIR$\config\linker\ST\stm32f103x8.icf</state>
+          <state>$PROJ_DIR$\CPS.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -1956,10 +1956,7 @@
       <name>$PROJ_DIR$\Code\Application\modbus_app.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\Code\Application\sun.a</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Code\Application\sun.h</name>
+      <name>$PROJ_DIR$\Code\Application\sun.c</name>
     </file>
   </group>
   <group>

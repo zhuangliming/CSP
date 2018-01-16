@@ -36,6 +36,13 @@ struct Geography
        FP32 latitude;
 };
 
+
+struct Station{
+	FP32 SunAngleEW;
+	FP32 SunAngleUD;
+	FP32 TrackAngleEW;
+	FP32 TrackAngleUD;
+};
 /*CSP device*/
 struct csp_class
 {
@@ -43,6 +50,7 @@ struct csp_class
     struct Geography *LocalGeography;
     IO_Type *IO;            /*Ctrl IO Port*/
     _RTC  rtc;              /*System RTC*/
+	struct Station *track;
 };
 
 INT8U CSPInit(struct csp_class *Csp);
